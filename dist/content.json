@@ -1,0 +1,117 @@
+{
+  "title": "Project SAIL: Mobilising the Nation",
+  "status": "Full draft for review",
+  "source": "Project SAIL - Full Draft for Review.docx",
+  "recommendations": [
+    {
+      "id": 1,
+      "title": "A Compute Accelerator for middle-scale compute",
+      "compact": "AI economy + places",
+      "summary": "Help every mayoral and combined authority identify, match and unlock viable 10–100MW compute sites.",
+      "detail": "Extend the existing data-centre planning support function into a standing service: map sites and grid capacity, match developer partners, and support delivery through planning.",
+      "exchange": "Places identify sites and support development; data-centre businesses build the infrastructure for local growth.",
+      "owner": "DBIST",
+      "timeline": "Operational by Budget 2026",
+      "source": "Section 5, recommendation 1"
+    },
+    {
+      "id": 2,
+      "title": "Community Benefit Agreements for data centre hosts",
+      "compact": "AI economy + places",
+      "summary": "Create a Community Benefit Agreement framework, backed by full business rates retention.",
+      "detail": "Publish a voluntary framework with benchmarked contributions and a menu of local recruitment, heat reuse, apprenticeships and facilities. Extend full business rates retention for a defined period to combined authorities hosting data centres.",
+      "exchange": "Places host infrastructure; developers publish community agreements and drop non-disclosure agreements in negotiations.",
+      "owner": "AI Taskforce + MHCLG",
+      "timeline": "Consultation by January 2027",
+      "source": "Section 5, recommendation 2"
+    },
+    {
+      "id": 3,
+      "title": "The grid connection queue: build faster, decide who decides",
+      "compact": "AI economy + places",
+      "summary": "Build faster—and make clear who decides when connection capacity is scarce.",
+      "detail": "Give housing, heat and transport electrification stated priority on the distribution network. Where possible, route data centres to transmission, accelerate pre-studies and allocate capacity by readiness, flexibility and network need.",
+      "exchange": "Operators accept a separate route from homes and verified flexibility obligations in return for faster connections.",
+      "owner": "DESNZ, with NESO",
+      "timeline": "April 2027",
+      "source": "Section 5, recommendation 3"
+    },
+    {
+      "id": 4,
+      "title": "One skills settlement for the AI economy",
+      "compact": "AI economy + people",
+      "summary": "Build sector partnerships that connect skills standards to real workforce evidence.",
+      "detail": "Extend the financial-services compact model to construction, care, professional services and manufacturing, one sector at a time. Employers co-author AI skills standards and feed workforce data into the AI Economics Institute’s evidence base.",
+      "exchange": "The state opens its evidence and standards infrastructure; employers co-design standards and share workforce evidence.",
+      "owner": "Skills England + AI Economics Institute + National Data Collaboration",
+      "timeline": "First new sector within 12 months; three further sectors each year",
+      "source": "Section 5, recommendation 4"
+    },
+    {
+      "id": 5,
+      "title": "Publish a clear definition of Sovereign AI",
+      "compact": "State + business",
+      "summary": "Give buyers a practical, risk-based way to assess sovereignty for each component and workload.",
+      "detail": "Publish a UK definition, then grade individual components and workloads rather than certify entire suppliers. Apply the classification as a scored procurement requirement for designated sensitive workloads, starting with health.",
+      "exchange": "The state provides clear sovereignty parameters; businesses deliver products against them.",
+      "owner": "AI Taskforce + Government Commercial Agency",
+      "timeline": "Definition by April 2027; GCA schedule within 6 months, deployment within 12",
+      "source": "Section 5, recommendation 5"
+    },
+    {
+      "id": 6,
+      "title": "Aggregate compute demand and grow compute access",
+      "compact": "State + business",
+      "summary": "Combine multi-year demand with tiered compute vouchers to support capacity and access.",
+      "detail": "Assemble committed demand from public bodies, researchers and voucher holders into a block that infrastructure builders can finance. Offer Innovate UK vouchers through Bridge AI, with hosting requirements proportionate to workload sensitivity.",
+      "exchange": "The state guarantees demand; businesses build capacity. Sensitive workloads remain under strict British legal and physical control.",
+      "owner": "AI Taskforce; voucher delivery through Bridge AI",
+      "timeline": "Budget allocation in 2026; rollout by April 2027",
+      "source": "Section 5, recommendation 6"
+    },
+    {
+      "id": 7,
+      "title": "Report critical services’ dependence on AI",
+      "compact": "State + business",
+      "summary": "Require operators to report where AI dependence could threaten continuity, starting with a pathfinder such as health.",
+      "detail": "The Cabinet Office and NCSC should clarify existing coverage and establish dependency assessments: which functions depend on foreign-controlled systems, what happens if access fails, and what fallback exists. Evaluate the pathfinder before extending a statutory duty.",
+      "exchange": "Public services assess their dependence systematically; suppliers provide the information needed.",
+      "owner": "Cabinet Office",
+      "timeline": "Framework within 6 months; reporting within 12",
+      "source": "Section 5, recommendation 7"
+    },
+    {
+      "id": 8,
+      "title": "Government as a demanding first customer",
+      "compact": "State + business",
+      "summary": "Use purchasing power to accelerate both adoption at scale and innovation at the frontier.",
+      "detail": "GDS should lead adoption procurement from the centre of government. For capability procurement, the AI Taskforce should keep five designated innovation cases in play, with Sovereign AI Unit delivery and contracts focused on outcomes.",
+      "exchange": "The state provides ambitious early demand; businesses innovate to meet it.",
+      "owner": "Government Digital Service (adoption) + Sovereign AI Unit (capability)",
+      "timeline": "Criteria and forward look within 6 months",
+      "source": "Section 5, recommendation 8"
+    },
+    {
+      "id": 9,
+      "title": "Retire the National Data Library. Build a National Data Collaboration.",
+      "compact": "State + business",
+      "summary": "Retire the National Data Library and build high-functioning data infrastructure through partnerships.",
+      "detail": "Create partnerships for operational public-service data and a UKRI commissioning model for frontier datasets. Publish an interim dataset release list, with timelines and complexity assessments, and release commissioned frontier datasets openly.",
+      "exchange": "The state builds shared infrastructure; researchers and enterprises contribute to and learn from it.",
+      "owner": "DBIST, supported by Government Digital Service",
+      "timeline": "Launch within 6 months; consumer data and frontier commissioning within 12; land and property within 24",
+      "source": "Section 5, recommendation 9"
+    },
+    {
+      "id": 10,
+      "title": "A second stage for firms that have started and stalled",
+      "compact": "State + business",
+      "summary": "Create a second-stage offer for firms that have started using AI and stalled.",
+      "detail": "Restrict support to firms with an existing deployment. Fund implementation specialists, workflow redesign, governance and benefits measurement rather than software licences, drawing on leading adopters’ expertise and business co-investment.",
+      "exchange": "The state supports deeper adoption; participating businesses co-invest and leading firms contribute expertise.",
+      "owner": "DBIST",
+      "timeline": "Deployment from April 2027",
+      "source": "Section 5, recommendation 10"
+    }
+  ]
+}
