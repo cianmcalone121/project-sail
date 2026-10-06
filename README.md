@@ -55,7 +55,11 @@ Other narrative sections are directly editable in `dist/index.html`. Visual toke
 
 ## Deployment
 
-Host the contents of `dist/` on any static web host. No backend is required for the site itself. For private feedback, configure authentication at the hosting layer so it protects every page and the downloadable report; a private GitHub repository alone does not protect a deployed website. This prototype remains a review draft, and the source report includes unresolved attribution and reference notes. Complete the editorial review before a public launch.
+Public preview: https://cianmcalone121.github.io/project-sail/
+
+GitHub Pages publishes the root of the `gh-pages` branch. That branch contains the contents of `dist/` and a `.nojekyll` file. After editing and checking the source on `main`, copy the updated contents of `dist/` to the root of `gh-pages` to publish an update. Changes on `main` alone do not update the preview.
+
+The website, repository and downloadable draft report are public. Visitors do not need a login. The report remains a draft for review.
 
 ## Checks completed
 
