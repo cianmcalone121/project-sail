@@ -23,7 +23,7 @@ const sections=chapters.map(([id,label,source],i)=>{
  }
  if(id==='assessment'){if(!content.includes('<h3>The fifty recommendations</h3>'))throw new Error('Assessment heading missing');content=content.replace('<h3>The fifty recommendations</h3>','<details class="evidence"><summary>Explore the assessment of all 50 recommendations</summary><div class="evidence-body">')+'</div></details>';}
  content=content.replace(/<table(.*?)>([\s\S]*?)<\/table>/g,'<div class="table-scroll" tabindex="0" role="region" aria-label="Report table"><table$1>$2</table></div>');
- return `<section class="chapter" id="${id}" aria-labelledby="${id}-title"><header class="chapter-heading"><span class="section-number">${numbers[i]}</span><h2 id="${id}-title">${label}</h2></header><div class="prose">${content}</div></section>`;
+ return `<details class="chapter" id="${id}" aria-labelledby="${id}-title"><summary class="chapter-heading"><span class="section-number">${numbers[i]}</span><h2 id="${id}-title">${label}</h2><span class="chapter-toggle" aria-hidden="true">+</span></summary><div class="prose">${content}</div></details>`;
 }).join('');
 const file=new URL('index.html',root);let index=await readFile(file,'utf8');
 if(!index.includes('<!-- REPORT START -->')||!index.includes('<!-- REPORT END -->'))throw new Error('Report insertion markers missing');

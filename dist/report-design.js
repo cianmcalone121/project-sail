@@ -1,8 +1,10 @@
 const recommendations=[...document.querySelectorAll('.recommendation')];
 document.querySelector('#expand-all')?.addEventListener('click',()=>recommendations.forEach(item=>item.open=true));
 document.querySelector('#collapse-all')?.addEventListener('click',()=>recommendations.forEach(item=>item.open=false));
-function revealAnchor(){const id=decodeURIComponent(location.hash.slice(1));if(!id)return;const target=document.getElementById(id);if(!target)return;for(let p=target;p;p=p.parentElement)if(p.tagName==='DETAILS')p.open=true;requestAnimationFrame(()=>target.scrollIntoView());}
-window.addEventListener('hashchange',revealAnchor);if(location.hash)revealAnchor();
+function revealAnchor(hash=location.hash){let id;try{id=decodeURIComponent(hash.slice(1));}catch{return;}if(!id)return;const target=document.getElementById(id);if(!target)return;for(let p=target;p;p=p.parentElement)if(p.tagName==='DETAILS')p.open=true;requestAnimationFrame(()=>target.scrollIntoView());}
+// Handle repeated clicks too: hashchange does not fire when the hash is unchanged.
+document.addEventListener('click',event=>{if(event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;const link=event.target.closest('a[href^="#"]');if(link)revealAnchor(link.getAttribute('href'));});
+window.addEventListener('hashchange',()=>revealAnchor());if(location.hash)revealAnchor();
 const links=[...document.querySelectorAll('.contents nav a')];
 const sections=links.map(link=>document.querySelector(link.getAttribute('href')));
 let scheduled=false;
