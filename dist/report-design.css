@@ -70,3 +70,8 @@ details.chapter,.recommendation{scroll-margin-top:95px}
 .partners>.chapter-heading{border:0;padding-top:0;margin-bottom:24px}
 @media(max-width:720px){.hero{min-height:calc(100svh - 70px);padding-bottom:28px}.pending-logos{gap:10px;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:24px}.pending-logo{font-size:9px;height:42px}.section-picker select{min-width:0;padding-left:0}.section-picker::after{right:4px}}
 @media print{.hero{min-height:0;display:block}.pending-logos{display:none}}
+
+/* Keep a single divider between the report and partner credits. */
+section.partners{border-top:0;margin-top:0;padding-top:40px}
+section.partners>.chapter-heading{border:0;margin-top:0;padding-top:0}
+.footer-partners{border:0}
