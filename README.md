@@ -5,10 +5,10 @@ A responsive digital reading edition of the full Project SAIL review draft. Host
 ## Editing and handover
 
 - `dist/report.html`: canonical full draft text, tables, references and original recommendation anchors. Edit its `article#report-text` to update report copy.
-- `dist/index.html`: opening statement, report cover, navigation and partner-logo area. Content between `REPORT START` and `REPORT END` is generated; edit the source report instead.
+- `dist/index.html`: opening statement, geometric sail, navigation and partner-logo areas. Content between `REPORT START` and `REPORT END` is generated; edit the source report instead.
 - `dist/report-design.css`: homepage typography, restrained purple theme and responsive layout.
 - `dist/report-design.js`: expand/collapse, anchor navigation and reading progress.
-- `dist/assets/report-cover.jpg`: cover rendered from the supplied one-page “Zinc Taskforce 2026 v3 cover.pdf”.
+- `dist/assets/report-cover.jpg`: archived cover reference rendered from the supplied one-page “Zinc Taskforce 2026 v3 cover.pdf”.
 - `dist/assets/project-sail-full-draft.docx`: original draft download. Replace the file and update labels/links when the final report is approved.
 - `dist/content.json`: legacy summary data, no longer used to generate the homepage. Do not edit it expecting changes to the full report.
 
