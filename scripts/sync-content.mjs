@@ -9,7 +9,7 @@ const labels=['Executive summary','Changing context','Progress assessment','From
 const chapters=[['foreword','Foreword',parts[0].replace(/^<p>Project SAIL:<\/p><p>Mobilising the Nation<\/p><p>Foreword \(SR - redraft if desired\)<\/p>/,'')]];
 for(let i=1;i<parts.length;i+=2){let n=(i-1)/2;chapters.push([ids[n],labels[n],parts[i+1]]);}
 if(chapters.length!==8)throw new Error('Report chapter structure changed; update the chapter map before publishing');
-const numbers=['F','E','01','02','03','04','05','R'];
+const numbers=['','','01','02','03','04','05',''];
 const sections=chapters.map(([id,label,source],i)=>{
  let content=source;
  if(id==='recommendations'){
@@ -23,7 +23,7 @@ const sections=chapters.map(([id,label,source],i)=>{
  }
  if(id==='assessment'){if(!content.includes('<h3>The fifty recommendations</h3>'))throw new Error('Assessment heading missing');content=content.replace('<h3>The fifty recommendations</h3>','<details class="evidence"><summary>Explore the assessment of all 50 recommendations</summary><div class="evidence-body">')+'</div></details>';}
  content=content.replace(/<table(.*?)>([\s\S]*?)<\/table>/g,'<div class="table-scroll" tabindex="0" role="region" aria-label="Report table"><table$1>$2</table></div>');
- return `<details class="chapter" id="${id}" aria-labelledby="${id}-title"><summary class="chapter-heading"><span class="section-number">${numbers[i]}</span><h2 id="${id}-title">${label}</h2><span class="chapter-toggle" aria-hidden="true">+</span></summary><div class="prose">${content}</div></details>`;
+ return `<details class="chapter" id="${id}" aria-labelledby="${id}-title"><summary class="chapter-heading">${numbers[i]?`<span class="section-number">${numbers[i]}</span>`:''}<h2 id="${id}-title">${label}</h2><span class="chapter-toggle" aria-hidden="true">+</span></summary><div class="prose">${content}</div></details>`;
 }).join('');
 const file=new URL('index.html',root);let index=await readFile(file,'utf8');
 if(!index.includes('<!-- REPORT START -->')||!index.includes('<!-- REPORT END -->'))throw new Error('Report insertion markers missing');
