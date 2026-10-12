@@ -28,7 +28,7 @@ GitHub Pages publishes the root of `gh-pages`. Commit source changes on `main`, 
 
 ## Review status
 
-The supplied PDF contains only the cover; it provides visual direction, not updated policy text. The site retains the previously supplied full review draft, including editorial queries and references. Updated NDL wording, attribution, approved partner logos, final PDF and final policy sign-off are still needed from the report owners. No unconfirmed partner endorsement is implied. The reserved partner area can be populated with approved logo assets and descriptive alt text.
+The supplied PDF contains only the cover; it provides visual direction, not updated policy text. The site retains the previously supplied full review draft, including editorial queries and references. Updated NDL wording, attribution, logo sign-off, final PDF and final policy sign-off are still needed from the report owners. The five logos requested by Cían are sourced from official websites and displayed with descriptive alt text. See LOGO-SOURCES.md for provenance; this does not record the separate taskforce logo sign-off process.
 
 ## Accessibility
 
