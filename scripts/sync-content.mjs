@@ -1,12 +1,27 @@
 import {readFile,writeFile} from 'node:fs/promises';
 const root=new URL('../dist/',import.meta.url);
-const data=JSON.parse(await readFile(new URL('content.json',root),'utf8'));
-const escape=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function RecommendationCard(r){
- const id=Number(r.id);
- if(!Number.isInteger(id)||id<1||id>10)throw new Error('Invalid recommendation ID');
- return `<details class="recommendation" id="action-${id}"><summary><span class="rec-number">${String(id).padStart(2,'0')}</span><span class="rec-heading"><span class="rec-category">${escape(r.compact)}</span><span class="rec-title">${escape(r.title)}</span><span class="rec-summary">${escape(r.summary)}</span></span><span class="rec-toggle" aria-hidden="true"></span></summary><div class="rec-detail"><p>${escape(r.detail)}</p><div class="rec-exchange"><span class="eyebrow">THE RECIPROCAL COMMITMENT</span><p>${escape(r.exchange)}</p></div><dl><div><dt>Accountable</dt><dd>${escape(r.owner)}</dd></div><div><dt>Delivery</dt><dd>${escape(r.timeline)}</dd></div></dl><a class="source-link" href="report.html#recommendation-${id}">Read the full recommendation</a></div></details>`;
-}
-const file=new URL('index.html',root);let html=await readFile(file,'utf8');
-html=html.replace(/(<div class="recommendation-list">)[\s\S]*?(<\/div><p class="caption">Concise summaries)/,(_,start,end)=>start+data.recommendations.map(RecommendationCard).join('\n')+end);
-await writeFile(file,html);console.log('Synced recommendation cards from dist/content.json. Static site ready in dist/.');
+const source=await readFile(new URL('report.html',root),'utf8');
+const body=source.match(/<article id="report-text">([\s\S]*?)<\/article>/)?.[1];
+if(!body)throw new Error('Full report source missing');
+const parts=body.split(/<h2>(.*?)<\/h2>/);
+const ids=['summary','context','assessment','approach','compact','recommendations','references'];
+const labels=['Executive summary','Changing context','Progress assessment','From sprints to mobilisation','A Prosperity Compact','Ten recommendations','References'];
+const chapters=[['foreword','Foreword',parts[0].replace(/^<p>Project SAIL:<\/p><p>Mobilising the Nation<\/p><p>Foreword \(SR - redraft if desired\)<\/p>/,'')]];
+for(let i=1;i<parts.length;i+=2){let n=(i-1)/2;chapters.push([ids[n],labels[n],parts[i+1]]);}
+if(chapters.length!==8)throw new Error('Report chapter structure changed; update the chapter map before publishing');
+const numbers=['F','E','01','02','03','04','05','R'];
+const sections=chapters.map(([id,label,source],i)=>{
+ let content=source;
+ if(id==='recommendations'){
+  const recs=source.split(/<h3 id="recommendation-(\d+)">(.*?)<\/h3>/);
+  content=recs[0]+'<div class="reading-controls"><button type="button" id="expand-all">Expand all recommendations</button><button type="button" id="collapse-all">Collapse all</button></div>';
+  for(let j=1;j<recs.length;j+=3){const [n,title,copy]=recs.slice(j,j+3);content+=`<details class="recommendation" id="recommendation-${n}"><summary><span class="rec-number">${n.padStart(2,'0')}</span><span>${title.replace(/^\d+\.\s*/,'')}</span><span class="toggle" aria-hidden="true">+</span></summary><div class="rec-copy">${copy}</div></details>`;}
+ }
+ if(id==='assessment'){if(!content.includes('<h3>The fifty recommendations</h3>'))throw new Error('Assessment heading missing');content=content.replace('<h3>The fifty recommendations</h3>','<details class="evidence"><summary>Explore the assessment of all 50 recommendations</summary><div class="evidence-body">')+'</div></details>';}
+ content=content.replace(/<table(.*?)>([\s\S]*?)<\/table>/g,'<div class="table-scroll" tabindex="0" role="region" aria-label="Report table"><table$1>$2</table></div>');
+ return `<section class="chapter" id="${id}" aria-labelledby="${id}-title"><header class="chapter-heading"><span class="section-number">${numbers[i]}</span><h2 id="${id}-title">${label}</h2></header><div class="prose">${content}</div></section>`;
+}).join('');
+const file=new URL('index.html',root);let index=await readFile(file,'utf8');
+if(!index.includes('<!-- REPORT START -->')||!index.includes('<!-- REPORT END -->'))throw new Error('Report insertion markers missing');
+index=index.replace(/<!-- REPORT START -->[\s\S]*?<!-- REPORT END -->/,'<!-- REPORT START -->'+sections+'<!-- REPORT END -->');
+await writeFile(file,index);console.log('Built the full digital report from dist/report.html.');

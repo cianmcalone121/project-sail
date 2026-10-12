@@ -32,3 +32,9 @@ The opening now identifies the report as a contribution by private sector leader
 The Compact includes the report’s important limitation: capture is the most fragile part of the circle. The recommendations start with building well; lasting value capture and distribution are continuing work, not promised results of a twelve-month programme. Recommendation headings have been brought closer to the source. No new policy claims, outcomes, taskforce membership or endorsements are invented.
 
 Visual direction: a white base, ink and cobalt, teal and rust reserved for evidence categories, a geometric SAIL wordmark, a left reading rail, and finite motion tied to information. The original slogan, slash mark, italic serif display type and large dark backgrounds have been removed.
+
+## Revision 3 — full digital report and PDF cover alignment
+
+The one-page `Zinc Taskforce 2026 v3 cover.pdf` supplied by Cían provides the cover reference: heavy sans-serif typography, purple geometry and a dark purple title band. Its cover is reproduced as a smaller image beside the opening statement, with white reading pages and restrained purple accents. It contains no interior report text.
+
+The homepage now includes every paragraph and table from the existing full reading edition, excluding only its duplicate title and foreword drafting label. Section numbering matches the source's numbered chapters. The detailed fifty-recommendation assessment and ten full policy recommendations use native expandable sections. Draft editorial notes and source caveats remain; no policy update or endorsement is invented. Logos remain an explicitly reserved area until approved assets arrive.

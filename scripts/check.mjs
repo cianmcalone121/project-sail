@@ -19,10 +19,14 @@ for(const file of ['index.html','report.html']){
   if(anchor){const destination=await readFile(url,'utf8');assert.ok(destination.includes(`id="${anchor}"`),`Missing anchor ${match[1]}`);}
  }
 }
-const chart=index.match(/<div class="assessment-chart reveal"[\s\S]*?<\/div>/)?.[0] || '';
-for (const [category, count] of Object.entries({substantial:14,early:27,weak:6,insufficient:3})) {
-  assert.equal((chart.match(new RegExp('<i class="'+category+'"', 'g'))||[]).length, count, `Incorrect ${category} marker count`);
-}
+// Preserve every source paragraph and table cell in the full digital report.
+const report=await readFile(new URL('report.html',root),'utf8');
+const body=report.match(/<article id="report-text">([\s\S]*?)<\/article>/)[1];
+const omitted=new Set(['<p>Project SAIL:</p>','<p>Mobilising the Nation</p>','<p>Foreword (SR - redraft if desired)</p>']);
+for(const [paragraph] of body.matchAll(/<p>[\s\S]*?<\/p>/g))if(!omitted.has(paragraph))assert.ok(index.includes(paragraph), 'Missing report paragraph: '+paragraph.slice(0,90));
+assert.equal((index.match(/<table\b/g)||[]).length,(body.match(/<table\b/g)||[]).length,'Report tables missing');
+for(let n=1;n<=10;n++)assert.ok(index.includes(`id="recommendation-${n}"`));
+execFileSync(process.execPath,['--check',new URL('report-design.js',root).pathname]);
 assert.ok(index.includes('id="context"'), 'Missing Action Plan introduction');
 execFileSync(process.execPath,['--check',new URL('app.js',root).pathname]);
-console.log('PASS: 10 recommendations, unique IDs, all local links/assets/anchors, 50 total, JavaScript syntax.');
+console.log('PASS: 10 recommendations, unique IDs, all local links/assets/anchors, full report paragraphs and tables preserved, JavaScript syntax.');
