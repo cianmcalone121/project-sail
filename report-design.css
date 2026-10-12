@@ -31,3 +31,15 @@
 .hero{padding-top:42px;padding-bottom:0}.hero-copy{display:block}.hero h1{font-size:clamp(48px,12vw,64px)}.hero-intro{padding-top:24px}.hero-subtitle{font-size:27px}.partner-panel{margin:32px 0 0;padding:24px 0 28px}.partner-panel .partner-caption{text-align:center;margin-bottom:22px}.partner-panel .partner-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:20px}.partner-panel .partner-mark{grid-column:span 3;min-height:48px}.partner-panel .mark-cisco{grid-column:2 / span 4}
 }
 @media print{.hero-copy{display:block}.partner-panel{display:none}}
+
+/* Each chapter is a native keyboard-accessible disclosure. */
+details.chapter{padding:0;margin:0;border-bottom:1px solid var(--line)}
+details.chapter>.chapter-heading{margin:0;padding:27px 0;border-top:0;align-items:center}
+details.chapter>.chapter-heading h2{flex:1;min-width:0;font-size:28px}
+.chapter-toggle{flex:none;color:var(--purple);font-size:26px;font-weight:400;line-height:1;transition:transform .2s}
+details.chapter[open]>.chapter-heading .chapter-toggle{transform:rotate(45deg)}
+details.chapter>.prose,details.chapter>.partner-copy{padding:10px 0 28px}
+details.partners{margin-top:32px;border-top:1px solid var(--line)}
+.partner-copy>p{font-size:15px;line-height:1.7;color:var(--muted)}
+@media(max-width:720px){details.chapter>.chapter-heading{padding:23px 0;gap:12px}details.chapter>.chapter-heading h2{font-size:24px}}
+@media print{.chapter-toggle{display:none}details.chapter>.chapter-heading h2{font-size:22pt}}
